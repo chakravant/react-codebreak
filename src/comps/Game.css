@@ -1,0 +1,62 @@
+h1 {
+    background-color: navy;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+}
+
+h2 {
+    color: darkgray;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+}
+
+div.container {
+    position: relative;
+}
+
+div.container div.win {
+    position: absolute;
+    top: 30%;
+    left: 70px;
+    background-color: aliceblue;
+    border: thin solid blueviolet;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    color: navy;
+}
+
+div.container div.fail {
+    position: absolute;
+    top: 30%;
+    left: 40px;
+    background-color: aliceblue;
+    border: thin solid red;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    color: darkred;
+}
+
+button.tryagain {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    margin: 15px 5px 5px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: darkred;
+    color: white;
+    width: 98%;
+}

@@ -1,0 +1,20 @@
+div.click {
+    cursor: crosshair;
+}
+
+div.bt {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: black thin solid;
+    border-radius: 15px;
+    margin-left: 5px;
+    margin-right: 8px;
+}
+
+div.sc.disabled div.bt {
+    background-color: gray !important;
+    cursor: pointer !important;
+}

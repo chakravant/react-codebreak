@@ -1,0 +1,62 @@
+h1 {
+    background-color: navy;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+}
+
+h2 {
+    color: darkgray;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+}
+
+div.config {
+    display: inline-block;
+    margin: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+}
+
+div.config p label {
+    display: block;
+    font-size: x-large;
+    margin:8px;
+}
+
+div.config p label input {
+    display: block;
+    font-size: x-large;
+    border-style: none none solid none;
+    margin-top: 8px;
+    width: 100%;
+}
+
+div.config p label input[type=checkbox] {
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    border-style: none none solid none;
+    margin-top: 8px;
+}
+
+div.config button {
+    display: block;
+    background-color: navy;
+    border: thin solid navy;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    color: white;
+    width: 100%;
+    padding: 16px;
+}
+
+div.config button:disabled {
+    background-color: gray !important;
+}
