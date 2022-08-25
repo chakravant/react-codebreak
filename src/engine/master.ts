@@ -1,6 +1,10 @@
 export type Optional<T> = T | undefined | null;
 
-type MarkedNumber = number | 'EX' | 'FND'
+type MarkedNumber = number | 'EX' | 'FND';
+
+export enum EAnswer {
+  Miss, Hit, Found
+}
 
 function rnd(max: number, min = 1) {
   return Math.floor(Math.random() * max) + min;
@@ -37,38 +41,31 @@ function calculate_black(code: number[], answer: number[]): MarkedNumber[] {
   return ans;
 }
 
-function mark_removed(arr: MarkedNumber[], elem: number): Optional<number> {
+function mark_removed(arr: MarkedNumber[], elem: number): EAnswer {
   const ix = arr.indexOf(elem);
   if (ix !== -1) {
     arr[ix] = 'FND';
-    return elem;
+    return EAnswer.Found;
   }
 
-  return undefined;
+  return EAnswer.Miss;
 }
 
 function calculate_white(mcode: MarkedNumber[], ans: number[]) {
-  const nmcode = mcode.slice();
-  for (let i = 0; i < 4; i += 1) {
-    if (mcode[i] === 'FND') continue;
-    mark_removed(nmcode, ans[i]);
+  const answer = new Array<EAnswer>();
+  for (let i = 0; i < ans.length; i += 1) {
+    if (mcode[i] === 'EX') {
+      answer[i] = EAnswer.Hit;
+    } else {
+      answer[i] = mark_removed(mcode, ans[i]);
+    }
   }
 
-  return nmcode;
-}
-
-export enum EAnswer {
-  Hit, Miss, Found
+  return answer;
 }
 
 export function calculate(code: number[], answer: number[]): EAnswer[] {
-  const blk = calculate_black(code, answer);
-  const miss = calculate_white(blk, answer);
-  return miss.map(d => {
-    switch(d) {
-      case 'EX': return EAnswer.Hit;
-      case 'FND': return EAnswer.Found;
-      default: return EAnswer.Miss;
-    }
-  })
+  const hits = calculate_black(code, answer);
+  const maps = calculate_white(hits, answer);
+  return maps;
 }

@@ -12,6 +12,7 @@ export default function BallLine({
     return (
         <span>
             {items.map((val, ix) => (<Ball 
+                                        key={ix}
                                         value={val + ''}
                                         clickable={!!onClick}
                                         onClick={!!onClick ? () => onClick(ix) : undefined}
